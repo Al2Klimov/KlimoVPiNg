@@ -101,7 +101,7 @@ func ping(
 	start := time.Now()
 	if _, err := client.Write(buf.Bytes()); err != nil {
 		log.WithError(err).Error("couldn't ping")
-		report(out, outMtx, tick, 0, err)
+		report(out, outMtx, tick, -timeout, err)
 		return
 	}
 
